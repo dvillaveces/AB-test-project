@@ -817,7 +817,7 @@ right track.
 
 
 \begin{Verbatim}[commandchars=\\\{\}]
-{\color{outcolor}Out[{\color{outcolor}24}]:} -0.0006629510105762432
+{\color{outcolor}Out[{\color{outcolor}24}]:} 0.0009064288519737423
 \end{Verbatim}
             
     \begin{enumerate}
@@ -886,7 +886,7 @@ right track.
 
 
 \begin{Verbatim}[commandchars=\\\{\}]
-{\color{outcolor}Out[{\color{outcolor}28}]:} 0.9096
+{\color{outcolor}Out[{\color{outcolor}28}]:} 0.9038
 \end{Verbatim}
             
     \begin{enumerate}
@@ -901,12 +901,14 @@ right track.
 \end{enumerate}
 
     I computed the probability of finding the observed value (obs\_diff)
-when the null hypothesis is true. THis is known as the p-value. A
-p-value of 0.91 means that we cannot reject the null hypothesis because
-there is a 91\% probability of finding the observed value (or a more
-extreme value) if the null hypothesis is true. By not rejecting the null
-hypothesis, we say that there is no evidence that there is a true
-difference between new and old pages.
+when the null hypothesis is true. This is known as the p-value. A
+p-value of 0.90 means that there is a 90\% probability of finding the
+observed value (or a more extreme value) if the null hypothesis is true.
+Since we previously established that we would only tolerate a Type I
+error rate of 5\% or less, a 0.90 p-value means we cannot reject the
+null hypothesis. By not rejecting the null hypothesis, we say that there
+is no evidence that there is a true difference between new and old
+pages.
 
     \begin{enumerate}
 \def\labelenumi{\alph{enumi}.}
@@ -945,12 +947,12 @@ difference between new and old pages.
 \end{enumerate}
 
     \begin{Verbatim}[commandchars=\\\{\}]
-{\color{incolor}In [{\color{incolor}30}]:} \PY{n}{sm}\PY{o}{.}\PY{n}{stats}\PY{o}{.}\PY{n}{proportions\PYZus{}ztest}\PY{p}{(}\PY{p}{[}\PY{n}{convert\PYZus{}old}\PY{p}{,} \PY{n}{convert\PYZus{}new}\PY{p}{]}\PY{p}{,} \PY{p}{[}\PY{n}{n\PYZus{}old}\PY{p}{,} \PY{n}{n\PYZus{}new}\PY{p}{]}\PY{p}{)}
+{\color{incolor}In [{\color{incolor}30}]:} \PY{n}{sm}\PY{o}{.}\PY{n}{stats}\PY{o}{.}\PY{n}{proportions\PYZus{}ztest}\PY{p}{(}\PY{p}{[}\PY{n}{convert\PYZus{}old}\PY{p}{,} \PY{n}{convert\PYZus{}new}\PY{p}{]}\PY{p}{,} \PY{p}{[}\PY{n}{n\PYZus{}old}\PY{p}{,} \PY{n}{n\PYZus{}new}\PY{p}{]}\PY{p}{,} \PY{n}{alternative}\PY{o}{=}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{smaller}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
 \end{Verbatim}
 
 
 \begin{Verbatim}[commandchars=\\\{\}]
-{\color{outcolor}Out[{\color{outcolor}30}]:} (1.3109241984234394, 0.18988337448195103)
+{\color{outcolor}Out[{\color{outcolor}30}]:} (1.3109241984234394, 0.9050583127590245)
 \end{Verbatim}
             
     \begin{enumerate}
@@ -964,10 +966,10 @@ difference between new and old pages.
 \end{enumerate}
 
     The z-score and p-value computed above are consistent with the findings
-in parts j. and k. Namely, the p-value of 0.997 leads us to not reject
-the null hypothesis, which means we have no evidence to indicate that
-the proportion of conversion in the new page is different from the
-proporsion of conversion in the old page.
+in parts j. and k. Namely, the p-value of 0.91, when compared to an
+alpha of 0.05, leads us to not reject the null hypothesis, which means
+we have no evidence to indicate that the proportion of conversion in the
+new page is different from the proporsion of conversion in the old page.
 
      \#\#\# Part III - A regression approach
 
@@ -1073,8 +1075,8 @@ Optimization terminated successfully.
          Dep. Variable:              converted   No. Observations:               290584
          Model:                          Logit   Df Residuals:                   290582
          Method:                           MLE   Df Model:                            1
-         Date:                Tue, 25 Sep 2018   Pseudo R-squ.:               8.077e-06
-         Time:                        14:44:31   Log-Likelihood:            -1.0639e+05
+         Date:                Wed, 26 Sep 2018   Pseudo R-squ.:               8.077e-06
+         Time:                        11:59:35   Log-Likelihood:            -1.0639e+05
          converged:                       True   LL-Null:                   -1.0639e+05
                                                  LLR p-value:                    0.1899
          ==============================================================================
@@ -1203,8 +1205,8 @@ Optimization terminated successfully.
          Dep. Variable:              converted   No. Observations:               290584
          Model:                          Logit   Df Residuals:                   290580
          Method:                           MLE   Df Model:                            3
-         Date:                Tue, 25 Sep 2018   Pseudo R-squ.:               2.323e-05
-         Time:                        14:44:43   Log-Likelihood:            -1.0639e+05
+         Date:                Wed, 26 Sep 2018   Pseudo R-squ.:               2.323e-05
+         Time:                        12:00:14   Log-Likelihood:            -1.0639e+05
          converged:                       True   LL-Null:                   -1.0639e+05
                                                  LLR p-value:                    0.1760
          ==============================================================================
@@ -1279,8 +1281,8 @@ Optimization terminated successfully.
          Dep. Variable:              converted   No. Observations:               290584
          Model:                          Logit   Df Residuals:                   290578
          Method:                           MLE   Df Model:                            5
-         Date:                Tue, 25 Sep 2018   Pseudo R-squ.:               3.482e-05
-         Time:                        14:45:08   Log-Likelihood:            -1.0639e+05
+         Date:                Wed, 26 Sep 2018   Pseudo R-squ.:               3.482e-05
+         Time:                        12:00:20   Log-Likelihood:            -1.0639e+05
          converged:                       True   LL-Null:                   -1.0639e+05
                                                  LLR p-value:                    0.1920
          ==============================================================================
